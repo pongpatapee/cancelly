@@ -7,7 +7,8 @@ function getTextInputFields() {
 
 function handleOnChange(event) {
   console.log(`new text: "${event.target.value}"`);
-  chrome.runtime.sendMessage({ data: event.target.value });
+  let extractedText = event.target.value ? event.target.value : "";
+  chrome.runtime.sendMessage({ data: extractedText });
 }
 
 const inputFields = getTextInputFields();
